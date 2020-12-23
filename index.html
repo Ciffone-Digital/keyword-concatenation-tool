@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300|Muli" rel="stylesheet">
+		<link href="includes/css/keywordtool.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+		<meta name="description" content="Use the Keyword concatination tool for Google Ads keywords, or plain old fashioned keyword research. Easily manage multiple keyword sets and export them all in bulk when you're done. Supports all separators.">
+		<title>Keyword Concatenation Tool for PPC, SEO & SEM</title>
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "WebApplication",
+				"name": "Keyword Concatenation Tool for PPC, SEO & SEM",
+				"url": "https://www.ventamarketing.com/keywordtool/",
+				"description": "Easily manage multiple keyword sets and export them all in bulk when you're done. Supports all separators. Use tool for Google Ads keywords, or plain old fashioned keyword research. ",
+				"applicationCategory": "SEO",
+				"applicationSubCategory": "keyword research",
+				"genre": "keyword tool",
+				"about": {
+					"@type": "Thing",
+					"description": "ad words keywords, keyword tool, keyword concatenation, keyword research, seo & ppc keyword tool"
+				},
+				"creator": "Mike Ciffone",
+				"browserRequirements": "Requires JavaScript. Requires HTML5.",
+				"softwareVersion": "1.0.0",
+				"softwareHelp": {
+					"@type": "CreativeWork",
+					"url": "https://ciffonedigital.com"
+				},
+				"operatingSystem": "All"
+			}
+		</script>
+	</head>
+	<body>
+	<div class="wrap">
+		<section class="hero" id="hero">
+			<div class="flex-text">
+				<div class="aligner">
+					<div class="aligner-center">
+						<img src="./includes/img/cd-concept.png">
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="about" id="about">
+			<div class="aligner">
+				<div class="aligner-center">
+					<div>
+						<h1>Combine Words to Build Keywords</h1>
+						<p><i>Create multiple sets now, and export later for an uninterrupted workflow</i></p>
+					</div>
+					<div id="setselector">
+						<ul class="kwsets">
+							<li><a class='add-set' href="#">Add Set</a></li>
+							<li><a class='change-set active' href="#" data-tab='0'>Set 1</a></li>
+						</ul>
+					</div>
+				</div>
+				<nav class="skew-menu">
+					<ul id="options-nav" mod-type>
+						<li class="kwType" id="broad-match"><a href="#" mod-type="broad-match"><img src="./includes/img/noun_1259436.png"/></a></li>
+						<li class="kwType" id="exact-match"><a href="#" mod-type="exact-match"><img src="./includes/img/noun_1308631.png"/></a></li>
+						<li class="kwType" id="phrase-match"><a href="#" mod-type="phrase-match"><img src="./includes/img/noun_65979.png"/></a></li>
+						<li class="kwType" id="none"><a href="#" mod-type="none"><img src="./includes/img/noun_300487.png"/></a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<section class='section-content-wrapper'>
+			<div class='inset' id="group-a">
+				<article>
+					<div class="image-wrap">
+						<h2>A</h2>
+					</div>
+					<div class="content-wrap" id="group-a">
+						<textarea class="group" id="kwGroupA" rows="15" cols="35" placeholder="Enter some words"></textarea>
+					</div>
+				</article>
+				<article>
+					<div class="image-wrap">
+						<h2>B</h2>
+					</div>
+					<div class="content-wrap" id="group-b">
+						<textarea class="group" id="kwGroupB" rows="15" cols="35" placeholder="Enter some words"></textarea>
+					</div>
+				</article>
+				<article>
+					<div class="image-wrap">
+						<h2>C</h2>
+					</div>
+					<div class="content-wrap" id="group-c">
+						<textarea class="group" id="kwGroupC" rows="15" cols="35" placeholder="Enter some words"></textarea>
+					</div>
+				</article>
+				<article>
+					<div class="image-wrap">
+						<h2>D</h2>
+					</div>
+					<div class="content-wrap" id="group-d">
+						<textarea class="group" id="kwGroupD" rows="15" cols="35" placeholder="Enter Keywords"></textarea>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="aligner">
+			<div class="aligner-center">
+				<button type="button" class="button green"; id="kwGen">Build Keywords</button>
+				&nbsp;
+				<button type="button" class="button dark"; id="fields">Reset Workspace</button>
+			</div>
+		</section>
+		
+		<section class="aligner">
+			<div class="aligner-center">
+				<h2>Keyword Combinations</h2>
+				<textarea class="group" id="output" rows="10" cols="40" onclick="this.focus(); this.select()"></textarea>
+				&nbsp;
+				<div class="wrap">
+					<button class="button green" id="csvExport">Export Keyword Set</button>
+					<button class="button green" id="csvExportall">Export All Keyword Sets</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="filler"></section>
+
+	</div>
+
+	<footer class="footer-distributed">
+		<div class="footer-right">
+			<a href="https://www.facebook.com/homex"><i class="fa fa-facebook"></i></a>
+			<a href="https://twitter.com/homex"><i class="fa fa-twitter"></i></a>
+			<a href="https://www.linkedin.com/company/homexllc/"><i class="fa fa-linkedin"></i></a>
+			<a href="https://homex.com/"><i class="fa fa-home"></i></a>
+		</div>
+
+		<div class="footer-left">
+			<p>Built by Ciffone Digital</p><p> &nbsp;| &nbsp; </p> <a href="https://ciffonedigital.com"><p class="links">ciffonedigital.com</p></a>
+		</div>
+	</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="./includes/js/tabManager.js" type="text/javascript"></script>
+	</body>
+</html>
