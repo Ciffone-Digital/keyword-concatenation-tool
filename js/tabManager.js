@@ -66,47 +66,46 @@ jQuery( document ).ready(function( $ ) {
 
     function getStrings() {
         var tmp = [];
-            stringMod = $("#options-nav").attr("mod-type");
+        var stringMod = $("#options-nav").attr("mod-type");
 
         $('#output').val('');
 
-        tmp[0] = $('#kwGroupA').val().split("\n");
-        tmp[1] = $('#kwGroupB').val().split("\n");
-        tmp[2] = $('#kwGroupC').val().split("\n");
-        tmp[3] = $('#kwGroupD').val().split("\n");
+        // added .trim() to strip empty lines
+        tmp[0] = $('#kwGroupA').val().trim().split("\n");
+        tmp[1] = $('#kwGroupB').val().trim().split("\n");
+        tmp[2] = $('#kwGroupC').val().trim().split("\n");
+        tmp[3] = $('#kwGroupD').val().trim().split("\n");
 
         for(var a = 0; a < tmp[0].length; a++){
-            for(var b = 0; b < tmp[1].length; b++){
-                for(var c = 0; c < tmp[2].length; c++){
-                    for(var d = 0; d < tmp[3].length; d++){
+          for(var b = 0; b < tmp[1].length; b++){
+            for(var c = 0; c < tmp[2].length; c++){
+              for(var d = 0; d < tmp[3].length; d++){
+                if(stringMod === 'broad-match'){
+                  var kw = "";
+                  if( tmp[0][a].trim() ){
+                    kw += '\+'+tmp[0][a].trim();
+                  }
+                  if( tmp[1][b].trim() ){
+                    kw += " \+"+tmp[1][b].trim();
+                  }
+                  if( tmp[2][c].trim() ){
+                    kw += " \+"+tmp[2][c].trim();
+                  }
+                  if( tmp[3][d].trim() ){
+                    kw += " \+"+tmp[3][d].trim();
+                  }
+                } else if( stringMod === 'exact-match') {
+                  var kw = "[" + tmp[0][a].trim() + " " + tmp[1][b].trim() + " " + tmp[2][c].trim() + " " + tmp[3][d].trim() + "]";
+                } else if( stringMod === 'phrase-match') {
+                  var kw = '"' + tmp[0][a].trim() + " " + tmp[1][b].trim() + " " + tmp[2][c].trim() + " " + tmp[3][d].trim() + '"';
+                } else {
+                  var kw = tmp[0][a].trim() + " " + tmp[1][b].trim() + " " + tmp[2][c].trim() + " " + tmp[3][d].trim();
+                }                        
 
-                        if(stringMod === 'broad-match'){
-                            var kw = "";
-
-                            if( tmp[0][a].trim() ){
-                                kw += '\+'+tmp[0][a].trim();
-                            }
-                            if( tmp[1][b].trim() ){
-                                kw += " \+"+tmp[1][b].trim();
-                            }
-                            if( tmp[2][c].trim() ){
-                                kw += " \+"+tmp[2][c].trim();
-                            }
-                            if( tmp[3][d].trim() ){
-                                kw += " \+"+tmp[3][d].trim();
-                            }
-                        }else if( stringMod === 'exact-match'){
-                            var kw = "[" + tmp[0][a].trim() + " " + tmp[1][b].trim() + " " + tmp[2][c].trim() + " " + tmp[3][d].trim() + "]";
-                        }else if( stringMod === 'phrase-match'){
-                            var kw = '"' + tmp[0][a].trim() + " " + tmp[1][b].trim() + " " + tmp[2][c].trim() + " " + tmp[3][d].trim() + '"';
-                        }else{
-                            var kw = tmp[0][a].trim() + " " + tmp[1][b].trim() + " " + tmp[2][c].trim() + " " + tmp[3][d].trim();
-                        }                        
-
-                        $("#output").val($("#output").val() + kw.trim() + "\n");
-                    }
-                }
+                $("#output").val($("#output").val() + kw.trim().replace(/\s+/g,' ') + "\n"); // added .replace(/\s+/g,' ') to strip extra spaces.
+              }
             }
+          }
         }
 
         /*Save to array*/
